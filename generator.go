@@ -259,7 +259,7 @@ func Generate(source, dest, pkgName string, extensions []string) {
 				import "html"
 				import "unsafe"
 
-				import "github.com/shiyanhui/hero"
+				import "github.com/cctse/hero"
 			`)
 
 			imports := n.childrenByType(TypeImport)
@@ -269,7 +269,8 @@ func Generate(source, dest, pkgName string, extensions []string) {
 
 			definitions := n.childrenByType(TypeDefinition)
 			if len(definitions) == 0 {
-				writeToFile(fileName, buffer)
+				fmt.Println("no func definition, dismiss", fileName)
+				//writeToFile(fileName, buffer)
 				return
 			}
 
